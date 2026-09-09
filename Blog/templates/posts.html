@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}All Posts - Blogs.com{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h1 class="font-heading m-0">Blog Posts</h1>
+            <a href="{% url 'home' %}" class="btn btn-outline-secondary btn-sm rounded-pill">
+                <i class="bi bi-arrow-left me-1"></i> Return To Home
+            </a>
+        </div>
+
+        {% for post in posts %}
+            <div class="card border-0 shadow-sm p-4 mb-4 rounded-4" style="background-color: rgba(255, 255, 255, 0.9);">
+                <h2 class="h3 font-heading mb-2">{{ post.title }}</h2>
+                <p class="text-secondary mb-0">{{ post.content }}</p>
+            </div>
+        {% empty %}
+            <div class="alert alert-light border text-center p-4 rounded-4 shadow-sm">
+                <i class="bi bi-inbox fs-2 text-muted d-block mb-2"></i>
+                <p class="mb-0 text-muted">No posts found.</p>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %} 
+
+{% block title %}Home - Blogs.com{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+
+        <!-- Category Nav Pill Links -->
+        <nav aria-label="Blog Categories" class="mb-4 text-center">
+            <span class="badge bg-white text-dark border me-2 py-2 px-3 shadow-sm"><a href="/ai" class="text-decoration-none text-dark">AI & Tech</a></span>
+            <span class="badge bg-white text-dark border me-2 py-2 px-3 shadow-sm"><a href="/web-dev" class="text-decoration-none text-dark">Web Development</a></span>
+            <span class="badge bg-white text-dark border me-2 py-2 px-3 shadow-sm"><a href="/design" class="text-decoration-none text-dark">Design</a></span>
+            <span class="badge bg-white text-dark border py-2 px-3 shadow-sm"><a href="/tutorials" class="text-decoration-none text-dark">Tutorials</a></span>
+        </nav>
+
+        <!-- Hero Content Card -->
+        <div class="card border-0 shadow-sm p-4 p-md-5 mb-5 rounded-4" style="background-color: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px);">
+            <h1 class="display-4 font-heading mb-3 text-center">Welcome to Blogs.com</h1>
+            <h4 class="text-muted text-center fw-normal mb-4 fs-5">
+                Where curiosity meets code, exploring the frontiers of tech, design, and smarter living, one post at a time.
+            </h4>
+            
+            <hr class="my-4 opacity-25">
+
+            <p class="lead text-secondary lh-lg mb-4 text-center">
+                Welcome to my corner of the internet! Whether you are looking for practical tech insights, creative design inspiration, or fresh perspectives on modern trends, you are in the right place. Dive into thoughtful articles designed to spark curiosity, share knowledge, and help you navigate the digital world with confidence. Explore the latest posts and join the conversation!
+            </p>
+
+            <div class="text-center mt-3">
+                <a href="{% url 'posts' %}" class="btn btn-aesthetic btn-lg shadow-sm px-4">
+                    <i class="bi bi-journal-text me-2"></i>Show Blog Posts
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
