@@ -4,6 +4,7 @@ from django.db import models
 class User(models.Model):
     name=models.CharField(max_length=15,default=" ")
     email=models.EmailField()
+    password = models.CharField(max_length=128, blank=False,default='')
 
 class Post(models.Model):
     title=models.CharField(max_length=15)
