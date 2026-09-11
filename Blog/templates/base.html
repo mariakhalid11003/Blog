@@ -220,16 +220,91 @@
                         </li>
                     </ul>
 
-                    <!-- Search / Action Button -->
-                    <div class="d-flex align-items-center gap-3">
-                        <a href="#" class="text-dark fs-5"><i class="bi bi-search"></i></a>
-                        <a href="#" class="btn btn-aesthetic btn-sm px-3">Login</a>
-                        <a href="{% url 'create_post'%}" class="btn btn-aesthetic btn-sm px-3">Create Post</a>
+       
+         <!-- Login Button trigger modal -->
+                        <button type="button" class="btn btn-aesthetic btn-sm mx-3" data-bs-toggle="modal" data-bs-target="#loginmodal">
+                        Login
+                        </button>                    
+
+        <!-- Sign UP Button trigger modal -->
+                        <button type="button" class="btn btn-aesthetic btn-sm  mx-3" data-bs-toggle="modal" data-bs-target="#Signupmodal">
+                        SignUp
+                        <!-- </button>                    
+                    <a href="{% url 'create_post'%}" class="btn btn-aesthetic btn-sm px-3 mx-2">Create Post</a>
+                     -->
                     </div>
                 </div>
             </div>
         </nav>
     </header>
+
+
+<!-- login Modal -->
+<div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login Here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     <form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label for="name" class="form-label">User name</label>
+    <input type="name" name="username" class="form-control" id="name" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Sign up Modal -->
+<div class="modal fade" id="Signupmodal" tabindex="-1" aria-labelledby="Signupmodal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Sign Up Here</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            
+<form action="{% url 'signup' %}" method="post" >
+                {% csrf_token %}
+  <div class="mb-3">
+    <label for="name" class="form-label">User name</label>
+    <input type="name" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Choose you username here" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="pass1" class="form-control" id="pass1" placeholder="Choose your password">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+    <input type="password" name="pass2" class="form-control" id="pass2" placeholder="Confirm your password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Main Content Area Block -->
     <main class="py-5">
